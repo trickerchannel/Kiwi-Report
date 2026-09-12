@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Hiệu Quả Google Maps - Kiwi Breakfast & Cafe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Đổi sang font Public Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>KIWI</h2>
+                <p>Breakfast & Cafe</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#tong-quan" class="active"><span class="material-symbols-outlined">dashboard</span> Tổng quan</a>
+                <a href="#kpi-cards"><span class="material-symbols-outlined">analytics</span> 6 Chỉ số</a>
+                <a href="#so-sanh"><span class="material-symbols-outlined">compare_arrows</span> So sánh</a>
+                <a href="#tu-khoa"><span class="material-symbols-outlined">manage_search</span> Lịch sử Tìm kiếm</a>
+                <a href="#tu-khoa-moi"><span class="material-symbols-outlined">travel_explore</span> Từ khóa Mới</a>
+                <a href="#citation-seo"><span class="material-symbols-outlined">share</span> Citation SEO</a>
+                <a href="#thiet-bi"><span class="material-symbols-outlined">devices</span> Thiết bị</a>
+                <a href="#ke-hoach"><span class="material-symbols-outlined">event_note</span> Kế hoạch</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-info">
+                    <h1>Báo cáo hiệu quả Google Maps</h1>
+                    <p class="address"><span class="material-symbols-outlined">location_on</span> 50A Phan Tôn, Đà Nẵng</p>
+                    <div class="status-badge">
+                        <span class="dot pulse"></span> Báo cáo đang cập nhật
+                    </div>
+                </div>
+                <div class="header-date">
+                    <span class="date-label">Ngày báo cáo:</span>
+                    <strong>12/09/2026</strong>
+                </div>
+            </header>
+
+            <!-- Filter -->
+            <div class="filter-section">
+                <label for="timeFilter" class="filter-label"><span class="material-symbols-outlined">calendar_month</span> Thời gian:</label>
+                <select id="timeFilter" class="time-filter">
+                    <option value="compare" selected>So sánh 2 giai đoạn</option>
+                    <option value="old">Tháng 04 – Tháng 08/2026</option>
+                    <option value="new">30/08 – 12/09/2026</option>
+                </select>
+            </div>
+
+            <!-- Hero Overview -->
+            <section id="tong-quan" class="section-card hero-section" data-view="all">
+                <div class="hero-content">
+                    <h2 class="hero-title">Google Maps đang chuyển sang đúng nhóm khách hàng ẩm thực</h2>
+                    <p class="hero-text">Trước đây, hồ sơ Google Maps chủ yếu được tìm thấy bởi nhóm khách hàng có nhu cầu lưu trú. Sau khi chuyển trọng tâm sang <strong>Breakfast & Cafe</strong>, dữ liệu đang được Google thu thập và phân phối lại theo nhóm khách hàng tìm kiếm ăn uống.</p>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-box old-stat" data-period="old">
+                        <span class="stat-label">Giai đoạn cũ (04-08/2026)</span>
+                        <strong class="stat-number" id="oldTotalViews">0</strong>
+                        <span class="stat-desc">lượt xem hồ sơ</span>
+                    </div>
+                    <div class="stat-box new-stat" data-period="new">
+                        <div class="badge">14 ngày</div>
+                        <span class="stat-label">Giai đoạn mới (30/08-12/09)</span>
+                        <strong class="stat-number highlight-text" id="newTotalViews">0</strong>
+                        <span class="stat-desc">lượt xem hồ sơ</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- USP Highlight -->
+            <section class="section-card usp-section" data-period="new" data-view="compare new">
+                <div class="usp-header">
+                    <span class="material-symbols-outlined star-icon">stars</span>
+                    <h2>ĐIỂM NỔI BẬT</h2>
+                </div>
+                <div class="usp-content">
+                    <div class="usp-main">
+                        <h3 class="giant-number">1.421</h3>
+                        <p class="giant-text">lượt xem hồ sơ trong 14 ngày</p>
+                        <p class="usp-subtext">Con số này tương đương khoảng <strong>15%</strong> tổng lượt xem của toàn bộ giai đoạn 04–08/2026.</p>
+                    </div>
+                    <div class="usp-comparison">
+                        <div class="compare-row">
+                            <span>Giai đoạn cũ (9.504 lượt / ~150 ngày)</span>
+                            <strong>≈ 63 lượt/ngày</strong>
+                        </div>
+                        <div class="compare-row">
+                            <span>Giai đoạn mới (1.421 lượt / 14 ngày)</span>
+                            <strong class="highlight-text">≈ 101 lượt/ngày</strong>
+                        </div>
+                        <div class="growth-badge">+60% lượt xem trung bình mỗi ngày</div>
+                        <p class="usp-explanation">Điều đáng chú ý không chỉ nằm ở tổng số lượt xem, mà ở tốc độ tiếp cận khách hàng sau khi hồ sơ chuyển sang định hướng ẩm thực.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6 KPI Cards -->
+            <section id="kpi-cards" class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon"><span class="material-symbols-outlined">visibility</span></div>
+                    <h3>TỔNG QUAN</h3>
+                    <strong class="kpi-value">1.421</strong>
+                    <p class="kpi-desc">lượt xem hồ sơ</p>
+                </div>
+                <div class="kpi-card empty-state">
+                    <div class="kpi-icon"><span class="material-symbols-outlined">restaurant_menu</span></div>
+                    <h3>THỰC ĐƠN</h3>
+                    <strong class="kpi-value" id="kpi-menu">Đang cập nhật</strong>
+                    <p class="kpi-desc">lượt xem menu</p>
+                </div>
+                <div class="kpi-card empty-state">
+                    <div class="kpi-icon"><span class="material-symbols-outlined">call</span></div>
+                    <h3>CUỘC GỌI</h3>
+                    <strong class="kpi-value" id="kpi-calls">Đang cập nhật</strong>
+                    <p class="kpi-desc">lượt gọi</p>
+                </div>
+                <div class="kpi-card empty-state">
+                    <div class="kpi-icon"><span class="material-symbols-outlined">calendar_month</span></div>
+                    <h3>ĐẶT HẸN</h3>
+                    <strong class="kpi-value" id="kpi-bookings">Đang cập nhật</strong>
+                    <p class="kpi-desc">lượt đặt hẹn</p>
+                </div>
+                <div class="kpi-card empty-state">
+                    <div class="kpi-icon"><span class="material-symbols-outlined">directions</span></div>
+                    <h3>TÌM ĐƯỜNG</h3>
+                    <strong class="kpi-value" id="kpi-directions">Đang cập nhật</strong>
+                    <p class="kpi-desc">yêu cầu chỉ đường</p>
+                </div>
+                <div class="kpi-card empty-state">
+                    <div class="kpi-icon"><span class="material-symbols-outlined">language</span></div>
+                    <h3>TRANG WEB</h3>
+                    <strong class="kpi-value" id="kpi-website">Đang cập nhật</strong>
+                    <p class="kpi-desc">lượt nhấp</p>
+                </div>
+            </section>
+
+            <!-- Comparison Charts -->
+            <section id="so-sanh" class="section-card chart-section" data-view="compare">
+                <div class="chart-header">
+                    <h2>So sánh hai giai đoạn</h2>
+                    <p>Không nên chỉ nhìn vào tổng số. Giai đoạn đầu kéo dài khoảng 5 tháng, trong khi giai đoạn mới chỉ mới bắt đầu khoảng 2 tuần. Vì vậy, cần ưu tiên so sánh tốc độ tiếp cận trung bình mỗi ngày.</p>
+                </div>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3>Lượt xem hồ sơ (Tổng)</h3>
+                        <canvas id="totalViewsChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Lượt xem trung bình mỗi ngày <span class="chart-badge">+60%</span></h3>
+                        <canvas id="dailyAvgChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explanation & Before/After -->
+            <section id="giai-thich" class="section-card" data-view="compare old">
+                <h2>TẠI SAO MỘT SỐ CHỈ SỐ GIẢM?</h2>
+                <p>Trong giai đoạn 04–08/2026, Google Maps đang ghi nhận hồ sơ theo định hướng khách sạn/lưu trú. Vì vậy, nhiều lượt tìm kiếm đến từ những người đang tìm khách sạn. Những lượt tìm kiếm này tạo ra lượng truy cập lớn nhưng không phản ánh đúng nhu cầu tìm đồ ăn sáng hoặc quán cafe.</p>
+                
+                <div class="before-after-grid">
+                    <div class="ba-card before">
+                        <div class="ba-badge">TRƯỚC (04 - 08/2026)</div>
+                        <h3>Khách sạn / Lưu trú</h3>
+                        <div class="arrow-down"><span class="material-symbols-outlined">arrow_downward</span></div>
+                        <ul class="search-list">
+                            <li><span class="material-symbols-outlined">search</span> Hotel</li>
+                            <li><span class="material-symbols-outlined">search</span> Accommodation</li>
+                            <li><span class="material-symbols-outlined">search</span> Room</li>
+                            <li><span class="material-symbols-outlined">search</span> Apartments</li>
+                        </ul>
+                    </div>
+                    <div class="ba-card after">
+                        <div class="ba-badge">HIỆN TẠI (Từ 30/08/2026)</div>
+                        <h3>Breakfast & Cafe</h3>
+                        <div class="arrow-down"><span class="material-symbols-outlined">arrow_downward</span></div>
+                        <ul class="search-list success-list">
+                            <li><span class="material-symbols-outlined">search</span> Breakfast</li>
+                            <li><span class="material-symbols-outlined">search</span> Cafe</li>
+                            <li><span class="material-symbols-outlined">search</span> Food</li>
+                            <li><span class="material-symbols-outlined">search</span> Restaurant</li>
+                        </ul>
+                        <p class="target-note">Nhóm khách hàng mục tiêu đang hướng tới</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Keywords Table (Old) -->
+            <section id="tu-khoa" class="section-card" data-view="compare old">
+                <h2>CÁC CỤM TỪ TÌM KIẾM CHÍNH (GIAI ĐOẠN CŨ)</h2>
+                <p class="table-note">Phần lớn các cụm từ nổi bật của giai đoạn cũ liên quan đến khách sạn, trong khi định hướng hiện tại là Breakfast & Cafe.</p>
+                <div class="table-responsive">
+                    <table class="keyword-table">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Cụm từ tìm kiếm</th>
+                                <th>Lượt kích hoạt</th>
+                                <th>Ý nghĩa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="keywordTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- NEW SECTION: NEW KEYWORDS RESEARCH -->
+            <section id="tu-khoa-moi" class="section-card" data-view="all">
+                <h2>CHIẾN LƯỢC TỪ KHÓA MỚI</h2>
+                <p class="table-note success-note">Danh sách phân tích và định hướng các nhóm từ khóa mới để tiếp tục mở rộng tệp khách hàng F&B.</p>
+                <div class="table-responsive">
+                    <table class="keyword-table">
+                        <thead>
+                            <tr>
+                                <th>Nhóm Phân Loại</th>
+                                <th>Danh Sách Từ Khóa</th>
+                                <th>Độ Khó</th>
+                                <th>Chuyển Đổi</th>
+                                <th>Chiến Lược & Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nhóm 1: Cấp Thành Phố</strong></td>
+                                <td>Best breakfast Da Nang, Cafe in Da Nang, Da Nang coffee shop</td>
+                                <td><span class="badge-diff hard">Khó</span></td>
+                                <td>Trung bình</td>
+                                <td>Chỉ sử dụng làm từ khóa bổ trợ trong bài viết dài, không dồn lực làm từ khóa chính.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nhóm 2: Cốt Lõi (Local)</strong></td>
+                                <td>Breakfast in An Thuong, Cafe An Thuong, Brunch near My An beach, An Thuong coffee</td>
+                                <td><span class="badge-diff medium">Dễ - Trung bình</span></td>
+                                <td>Rất cao</td>
+                                <td>Tập trung 80% nguồn lực SEO. Đưa vào tên Maps, Bio Instagram, mục About trên Fanpage.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nhóm 3: Ngách (Long-tail)</strong></td>
+                                <td>Spacious cafe An Thuong, Outdoor breakfast Da Nang, Digital nomad cafe An Thuong, Best Eggs Benedict An Thuong</td>
+                                <td><span class="badge-diff easy">Rất dễ</span></td>
+                                <td>Tuyệt đối</td>
+                                <td>Triển khai bài viết chuyên sâu (VD: Top quán cafe ngoài trời). Đánh đúng tâm lý Digital Nomads.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- NEW SECTION: CITATION SEO -->
+            <section id="citation-seo" class="section-card" data-view="all">
+                <h2>CITATION SEO (ĐỒNG BỘ DỮ LIỆU)</h2>
+                <p class="table-note info-note">Đang triển khai đồng bộ dữ liệu trên các nền tảng để tăng cường tín hiệu nhận diện Local Search cho Google.</p>
+                <div class="citation-grid">
+                    <div class="citation-card">
+                        <h3><span class="material-symbols-outlined">category</span> Nhóm Tín Hiệu</h3>
+                        <ul>
+                            <li>Vibe & Space Keywords</li>
+                            <li>Service & Offering</li>
+                            <li>Local & Proximity</li>
+                            <li>Target Audience</li>
+                        </ul>
+                    </div>
+                    <div class="citation-card">
+                        <h3><span class="material-symbols-outlined">tag</span> Keywords Triển Khai</h3>
+                        <div class="tags-container">
+                            <span class="tag">open-air breakfast</span>
+                            <span class="tag">outdoor vibes</span>
+                            <span class="tag">breezy</span>
+                            <span class="tag">relaxed neighborhood atmosphere</span>
+                            <span class="tag">spacious outdoor eatery</span>
+                            <span class="tag">OutdoorDining</span>
+                            <span class="tag">all-day breakfast</span>
+                            <span class="tag">brunch</span>
+                            <span class="tag">rich Vietnamese coffee</span>
+                            <span class="tag">DaNangBreakfast</span>
+                            <span class="tag">travelers</span>
+                        </div>
+                    </div>
+                    <div class="citation-card">
+                        <h3><span class="material-symbols-outlined">task_alt</span> Tiến Độ & Minh Chứng</h3>
+                        <ul class="status-list">
+                            <li><strong>Mục đích:</strong> Local Search</li>
+                            <li><strong>Trạng thái:</strong> <span class="status-badge processing">Hoàn thành</span></li>
+                            <li><strong>Minh chứng:</strong>
+                                <br>
+                                <a href="https://www.facebook.com/groups/522846599070843/?multi_permalinks=1863939861628170&hoisted_section_header_type=recently_seen">Post 1</a>
+                                <br>
+                                <a href="https://www.facebook.com/groups/1911119432502301/?multi_permalinks=4813392598941622&hoisted_section_header_type=recently_seen">Post 2</a>
+                                <br>
+                                <a href="https://www.facebook.com/groups/231792487255073/?multi_permalinks=2692868324480798&hoisted_section_header_type=recently_seen">Post 3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Devices -->
+            <section id="thiet-bi" class="section-card" data-view="compare new old">
+                <div class="chart-header">
+                    <h2>Thiết bị khách hàng sử dụng</h2>
+                    <p class="highlight-box">Phần lớn khách hàng tìm thấy quán bằng điện thoại. Đặc biệt, <strong>81%</strong> lượt xem giai đoạn mới đến từ Google Maps trên điện thoại.</p>
+                </div>
+                <div class="charts-grid donut-grid">
+                    <div class="chart-container donut-container" data-period="old">
+                        <h3>Giai đoạn 04–08/2026</h3>
+                        <canvas id="oldDeviceChart"></canvas>
+                    </div>
+                    <div class="chart-container donut-container" data-period="new">
+                        <h3>Giai đoạn mới (30/08–12/09)</h3>
+                        <canvas id="newDeviceChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conclusion & Timeline -->
+            <section class="section-card conclusion-card" data-view="all">
+                <div class="usp-header">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <h2>KẾT LUẬN</h2>
+                </div>
+                <div class="conclusion-text">
+                    <p>Việc thay đổi danh mục kinh doanh trên Google Maps khiến hồ sơ cần thời gian để xây dựng lại dữ liệu theo nhóm khách hàng mới. Vì vậy, việc một số chỉ số liên quan đến khách sạn giảm là điều có thể xảy ra.</p>
+                    <p>Điểm tích cực là chỉ sau khoảng 2 tuần, hồ sơ mới đã đạt <strong>1.421 lượt xem</strong> và tốc độ trung bình khoảng <strong>101 lượt xem/ngày</strong>, cao hơn mức khoảng 63 lượt/ngày của giai đoạn trước.</p>
+                    <p>Điều này cho thấy hồ sơ đang bắt đầu tiếp cận theo đúng hướng kinh doanh Breakfast & Cafe.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">04/2026 - 08/2026</div>
+                        <div class="timeline-content">Hồ sơ tiếp cận mạnh nhóm khách hàng khách sạn và tích lũy lượt xem.</div>
+                    </div>
+                    <div class="timeline-item timeline-highlight">
+                        <div class="timeline-dot dot-active"></div>
+                        <div class="timeline-date">30/08/2026</div>
+                        <div class="timeline-content"><strong>THAY ĐỔI ĐỊNH HƯỚNG SANG BREAKFAST & CAFE</strong></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">30/08 - 12/09/2026</div>
+                        <div class="timeline-content">Google bắt đầu thu thập dữ liệu mới. Đạt 1.421 lượt xem.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">Tháng tiếp theo</div>
+                        <div class="timeline-content">Tiếp tục xây dựng dữ liệu và triển khai chiến lược SEO & Citation mới.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next Plans -->
+            <section id="ke-hoach" class="section-card" data-view="all">
+                <h2>KẾ HOẠCH THÁNG TIẾP THEO</h2>
+                <div class="plan-grid">
+                    <div class="plan-card">
+                        <div class="plan-num">01</div>
+                        <h3>NỘI DUNG</h3>
+                        <p class="plan-meta">8 bài/tháng</p>
+                        <ul>
+                            <li>4 bài giới thiệu không gian/món ăn</li>
+                            <li>2 bài ưu đãi/combo</li>
+                            <li>2 bài tiếng Anh</li>
+                        </ul>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-num">02</div>
+                        <h3>HÌNH ẢNH</h3>
+                        <p class="plan-meta">Cập nhật liên tục</p>
+                        <ul>
+                            <li>Không gian & Menu</li>
+                            <li>Món ăn</li>
+                            <li>Breakfast & Cafe</li>
+                        </ul>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-num">03</div>
+                        <h3>KHÁCH HÀNG</h3>
+                        <p class="plan-meta">Tập trung nhóm</p>
+                        <ul>
+                            <li>Khách du lịch & khu vực An Thượng</li>
+                            <li>Người tìm breakfast & cafe/food</li>
+                        </ul>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-num">04</div>
+                        <h3>ĐO LƯỜNG</h3>
+                        <p class="plan-meta">Theo dõi chỉ số</p>
+                        <ul>
+                            <li>Lượt xem & Cuộc gọi</li>
+                            <li>Chỉ đường, Menu, Website</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Next KPI -->
+            <section class="section-card kpi-target-card" data-view="all">
+                <h2>MỤC TIÊU 2 THÁNG</h2>
+                <div class="target-flow">
+                    <div class="target-box">20 từ khóa mục tiêu</div>
+                    <span class="material-symbols-outlined target-arrow">arrow_downward</span>
+                    <div class="target-box highlight">Ít nhất 10 từ khóa<br><strong>(= 50%)</strong></div>
+                    <p class="target-desc">có sự cải thiện rõ rệt về khả năng xuất hiện hoặc độ phủ trên Google Maps.</p>
+                </div>
+                <div class="target-fallback">
+                    <span class="material-symbols-outlined">info</span> Nếu không đạt mục tiêu: Tiếp tục tối ưu bổ sung 15 ngày.
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <h3>Kiwi Breakfast & Cafe</h3>
+                <p>Báo cáo Google Maps • 30/08 – 12/09/2026</p>
+                <p class="footer-note">Data đang tiếp tục được Google cập nhật.</p>
+                <p class="prepared-by">Prepared for Kiwi Breakfast & Cafe</p>
+            </footer>
+        </main>
+
+        <!-- Mobile Bottom Nav -->
+        <nav class="mobile-nav">
+            <a href="#tong-quan" class="active"><span class="material-symbols-outlined">dashboard</span><span>Tổng quan</span></a>
+            <a href="#kpi-cards"><span class="material-symbols-outlined">analytics</span><span>Chỉ số</span></a>
+            <a href="#tu-khoa-moi"><span class="material-symbols-outlined">travel_explore</span><span>Từ Khóa</span></a>
+            <a href="#citation-seo"><span class="material-symbols-outlined">share</span><span>Citation</span></a>
+            <a href="#ke-hoach"><span class="material-symbols-outlined">event_note</span><span>Kế hoạch</span></a>
+        </nav>
+    </div>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
