@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // NHẬP SỐ LIỆU 6 CHỈ SỐ Ở ĐÂY 
         // Dùng null nếu chưa có dữ liệu để hiển thị "Đang cập nhật"
         kpiData: {
-            views: { old: 9504, new: 5262 },
+            views: { old: 9504, new: 10522 },
             menu: { old: 0, new: 5 },
             calls: { old: 167, new: 32 },
             bookings: { old: 0, new: 0 },
@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
             googleMapsDesktop: 975, googleSearchDesktop: 491
         },
         newDevices: {
-            googleMapsMobile: 1155, googleMapsDesktop: 153,
-            googleSearchMobile: 97, googleSearchDesktop: 16
+            googleMapsMobile: 8338, googleMapsDesktop: 1075,
+            googleSearchMobile: 924, googleSearchDesktop: 185
         }
     };
 
