@@ -1,27 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. DỮ LIỆU ĐƯỢC CHUẨN HÓA CHO PHÉP NHẬP THỦ CÔNG 
-    // Thay số 0, null thành dữ liệu thực tế khi có
+    // Dữ liệu báo cáo
     const reportData = {
-        oldPeriod: {
-            label: "04/2026 – 08/2026",
-            days: 150
-        },
-        newPeriod: {
-            label: "30/08/2026 – 22/09/2026",
-            days: 24
-        },
+        oldPeriod: { label: "04/2026 – 08/2026", days: 150 },
+        newPeriod: { label: "30/08/2026 – 22/09/2026", days: 24 },
         
-        // NHẬP SỐ LIỆU 6 CHỈ SỐ Ở ĐÂY 
-        // Dùng null nếu chưa có dữ liệu để hiển thị "Đang cập nhật"
+        // Số liệu KPI
         kpiData: {
             views: { old: 9504, new: 10522 },
             menu: { old: 0, new: 5 },
             calls: { old: 167, new: 32 },
             bookings: { old: 0, new: 0 },
-            directions: { old: 1.379, new: 518 },
+            directions: { old: 1379, new: 518 }, // Đã sửa lỗi dấu chấm thập phân
             website: { old: 1, new: 0 },
         },
 
+        // Dữ liệu từ khóa cũ
         oldKeywords: [
             { keyword: "kiwi hotel & apartments, ngũ hành sơn, đà nẵng", value: 845, meaning: "Khách tìm phòng lưu trú" },
             { keyword: "kiwi", value: 416, meaning: "Thương hiệu chung" },
@@ -30,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { keyword: "kiwi hotel & apartments, ngu hanh son, da nang", value: 121, meaning: "Khách tìm phòng lưu trú" }
         ],
         
+        // Dữ liệu thiết bị
         oldDevices: {
             googleMapsMobile: 6774, googleSearchMobile: 1264,
             googleMapsDesktop: 975, googleSearchDesktop: 491
@@ -40,14 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // 2. HÀM HỖ TRỢ
+    // Hàm định dạng số
     const formatNum = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-    // Tổng lượt xem ban đầu
+    // Hiển thị tổng lượt xem
     document.getElementById('oldTotalViews').innerText = formatNum(reportData.kpiData.views.old);
     document.getElementById('newTotalViews').innerText = formatNum(reportData.kpiData.views.new);
 
-    // Bảng từ khóa cũ
+    // Render bảng từ khóa
     const tbody = document.getElementById('keywordTableBody');
     reportData.oldKeywords.forEach((kw, index) => {
         const tr = document.createElement('tr');
@@ -55,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tbody.appendChild(tr);
     });
 
-    // 3. LOGIC CẬP NHẬT THẺ KPI DỰA THEO THỜI GIAN
+    // Xử lý và tính toán KPI
     const kpiKeys = ['views', 'menu', 'calls', 'bookings', 'directions', 'website'];
     
     function renderKPIs(mode) {
@@ -70,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let oldVal = data.old;
             let newVal = data.new;
 
-            // Xử lý hiển thị mốc cũ / mới độc lập
+            // Hiển thị số liệu độc lập
             if (mode === 'old' || mode === 'new') {
                 compBox.classList.add('hidden');
                 let targetVal = mode === 'old' ? oldVal : newVal;
@@ -83,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     cardEl.classList.remove('empty-state');
                 }
             } 
-            // Xử lý tính toán So sánh USP tự động
+            // So sánh và tính tỷ lệ tăng trưởng
             else if (mode === 'compare') {
                 if (oldVal === null || newVal === null) {
                     compBox.classList.add('hidden');
@@ -94,10 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     cardEl.classList.remove('empty-state');
                     compBox.classList.remove('hidden');
 
-                    // So sánh tốc độ tiếp cận trung bình ngày vì mốc thời gian chênh lệch (150 ngày vs 14 ngày)
                     let oldAvg = oldVal / reportData.oldPeriod.days;
                     let newAvg = newVal / reportData.newPeriod.days;
-                    let pctChange = ((newAvg - oldAvg) / oldAvg) * 100;
+                    
+                    // Tránh lỗi chia cho 0 khi chỉ số cũ bằng 0
+                    let pctChange = oldAvg === 0 ? (newAvg > 0 ? 100 : 0) : ((newAvg - oldAvg) / oldAvg) * 100;
 
                     if (pctChange > 0) {
                         badgeEl.className = 'kpi-badge up';
@@ -113,13 +108,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Khởi tạo KPI lần đầu
     renderKPIs('compare');
 
-    // 4. CHART.JS CẤU HÌNH
+    // Cấu hình Chart.js
     Chart.defaults.font.family = "'Public Sans', -apple-system, sans-serif";
     Chart.defaults.color = '#5F6368';
     
+    // Biểu đồ tổng quan
     const ctxTotal = document.getElementById('totalViewsChart').getContext('2d');
     new Chart(ctxTotal, {
         type: 'bar',
@@ -136,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { display: true, color: '#f0f0f0' } }, x: { grid: { display: false } } } }
     });
 
+    // Biểu đồ trung bình ngày
     const ctxDaily = document.getElementById('dailyAvgChart').getContext('2d');
     new Chart(ctxDaily, {
         type: 'bar',
@@ -152,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, grid: { display: true, color: '#f0f0f0' } }, x: { grid: { display: false } } } }
     });
 
-    // Donut cũ
+    // Biểu đồ tỷ trọng thiết bị cũ
     const ctxOldDev = document.getElementById('oldDeviceChart').getContext('2d');
     new Chart(ctxOldDev, {
         type: 'doughnut',
@@ -166,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } }, cutout: '65%' }
     });
 
-    // Donut mới
+    // Biểu đồ tỷ trọng thiết bị mới
     const ctxNewDev = document.getElementById('newDeviceChart').getContext('2d');
     new Chart(ctxNewDev, {
         type: 'doughnut',
@@ -180,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } }, cutout: '65%' }
     });
 
-    // 5. BỘ LỌC EVENT
+    // Xử lý bộ lọc thời gian
     const timeFilter = document.getElementById('timeFilter');
     const sections = document.querySelectorAll('section[data-view]');
     const periodSpecifics = document.querySelectorAll('[data-period]');
@@ -188,7 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
     timeFilter.addEventListener('change', (e) => {
         const val = e.target.value; 
 
-        // Ẩn hiện Section
         sections.forEach(sec => {
             const views = sec.getAttribute('data-view').split(' ');
             if (views.includes('all') || views.includes(val)) {
@@ -198,7 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Ẩn hiện thẻ nhỏ
         periodSpecifics.forEach(el => {
             const p = el.getAttribute('data-period');
             if (val === 'compare' || p === val) {
@@ -208,11 +202,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Chạy lại render thẻ KPI
         renderKPIs(val);
     });
 
-    // 6. ĐIỀU HƯỚNG BẤM TAY THAY ĐỔI TRẠNG THÁI ACTIVE
+    // Xử lý active menu
     const navLinks = document.querySelectorAll('.sidebar-nav a, .mobile-nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
