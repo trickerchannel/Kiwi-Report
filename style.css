@@ -25,6 +25,18 @@
     scroll-behavior: smooth;
 }
 
+/* Fix global horizontal overflow & enforce text wrapping */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
+
+a {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
 /* Font */
 body {
     font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -530,7 +542,15 @@ h3 {
 .chart-container {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 320px;
+}
+
+.chart-container canvas {
+    max-height: calc(100% - 45px) !important;
+}
+
+.chart-section {
+    padding-bottom: 32px !important;
 }
 
 .chart-container h3 {
@@ -550,7 +570,7 @@ h3 {
 }
 
 .donut-grid .chart-container {
-    height: 320px;
+    height: 400px;
 }
 
 /* T/S */
@@ -647,6 +667,8 @@ h3 {
 .table-responsive {
     width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on mobile */
+    display: block; /* Ensure container acts correctly to enforce bounds */
     margin-top: 16px;
     border-radius: 8px;
     border: 1px solid var(--border-color);
@@ -1041,7 +1063,102 @@ h3 {
     display: none !important;
 }
 
-/* Reponsive */
+/* --- BACK TO TOP COMPONENT --- */
+.back-to-top {
+    position: fixed;
+    bottom: 85px; /* Để cao hơn thanh Mobile Nav nhằm tránh đè lên menu */
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #1557b0;
+    transform: translateY(-3px);
+}
+
+/* MOBILE RESPONSIVE FIXES (320px - 767px) */
+@media (max-width: 767px) {
+    .main-content {
+        padding: 12px;
+        padding-bottom: 76px;
+    }
+
+    /* Reduce paddings */
+    .section-card, .top-header, .filter-section, .usp-section {
+        padding: 16px;
+    }
+
+    /* Typography scaling */
+    h1 { font-size: 1.3rem; }
+    h2 { font-size: 1.15rem; }
+    .hero-title { font-size: 1.25rem; }
+    .giant-number { font-size: 2.5rem; }
+    .stat-number { font-size: 2rem; }
+
+    /* Layout direction resets */
+    .header-date {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch; /* Allow select input to take full width */
+    }
+    
+    .time-filter { 
+        width: 100%; 
+    }
+
+    .compare-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    /* Badge collision fix */
+    .stat-box.new-stat {
+        padding-top: 24px;
+    }
+
+    /* Link behavior */
+    .status-list li a {
+        display: inline-block;
+        word-break: break-all;
+    }
+    
+    /* Mobile nav squishing fixes for 320px screens */
+    .mobile-nav a {
+        padding: 4px;
+        font-size: 0.65rem;
+    }
+    
+    .mobile-nav a span.material-symbols-outlined {
+        font-size: 20px;
+    }
+}
+
+/* Desktop Reponsive */
 @media (min-width: 768px) {
     .kpi-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1131,7 +1248,16 @@ h3 {
     .time-filter {
         max-width: 300px;
     }
+
+    /* Đưa nút Back To Top về sát lề dưới cho Desktop (vì không có menu mobile) */
+    .back-to-top {
+        bottom: 30px;
+        right: 30px;
+        width: 48px;
+        height: 48px;
+    }
 }
+
 /* Khối USP */
 .usp-section {
     background-color: #ffffff;

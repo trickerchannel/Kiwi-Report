@@ -214,4 +214,24 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll(`a[href="${href}"]`).forEach(a => a.classList.add('active'));
         });
     });
+
+    // Xử lý chức năng nút Back to Top
+    const backToTopBtn = document.getElementById("backToTop");
+    
+    // Hiện nút khi cuộn chuột qua 300px
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add("show");
+        } else {
+            backToTopBtn.classList.remove("show");
+        }
+    });
+
+    // Mượt mà cuộn lên đầu khi click
+    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 });
