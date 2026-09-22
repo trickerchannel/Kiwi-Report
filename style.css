@@ -781,8 +781,8 @@ h3 {
 }
 
 .status-badge.processing {
-    background: var(--warning-light);
-    color: #03fc07;
+    background: #03fc07;
+    color: #000000;
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 0.8rem;
