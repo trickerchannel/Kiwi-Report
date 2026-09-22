@@ -1132,3 +1132,53 @@ h3 {
         max-width: 300px;
     }
 }
+/* Khối USP */
+.usp-section {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    font-family: 'Public Sans', sans-serif;
+}
+
+/* Tiêu đề USP */
+.usp-section h3 {
+    color: #1a73e8;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+}
+
+/* Đoạn mô tả */
+.usp-section p {
+    color: #5f6368;
+    font-size: 15px;
+    margin: 0 0 16px 0;
+    line-height: 1.6;
+}
+
+/* Danh sách các đặc điểm nổi bật */
+.usp-section ul {
+    margin: 0;
+    padding-left: 24px;
+}
+
+.usp-section ul li {
+    color: #3c4043;
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.usp-section ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Nhấn mạnh chữ đậm */
+.usp-section p strong,
+.usp-section ul li strong {
+    color: #202124;
+    font-weight: 600;
+}
