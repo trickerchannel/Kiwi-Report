@@ -7,18 +7,18 @@ document.addEventListener("DOMContentLoaded", () => {
             days: 150
         },
         newPeriod: {
-            label: "30/08/2026 – 12/09/2026",
-            days: 14
+            label: "30/08/2026 – 22/09/2026",
+            days: 24
         },
         
         // NHẬP SỐ LIỆU 6 CHỈ SỐ Ở ĐÂY 
         // Dùng null nếu chưa có dữ liệu để hiển thị "Đang cập nhật"
         kpiData: {
-            views: { old: 9504, new: 1421 },
+            views: { old: 9504, new: 5262 },
             menu: { old: 0, new: 5 },
-            calls: { old: 167, new: 29 },
+            calls: { old: 167, new: 32 },
             bookings: { old: 0, new: 0 },
-            directions: { old: 1.379, new: 431 },
+            directions: { old: 1.379, new: 518 },
             website: { old: 1, new: 0 },
         },
 
